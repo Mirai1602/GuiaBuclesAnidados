@@ -8,46 +8,46 @@ valores aleatorios). Al finalizar, el programa debe mostrar el resumen de comput
 por el labotarotio. 
 """
 import os
-def Estadolab():
-    Computadoras= []
+
+#Se crean dos laboratorios con todas las computadoras disponibles, para que el usuario solo tenga
+#que marcar las ocupadas
+def labVacio():
+   return [[True for i in range(4)] for j in range(5)]
+
+#Según yo, de esta forma es más práctico, así no hay que estar marcando 400 líneas
+def marcar(labs):
+   print("Introduce las computadoras ocupadas en el formato L-F-C(laboratorio-fila-computadora) utilizando números enteros")
+   print("Para introducir varias serpare por comas, eje: 1-2-3,1-4-5,2-2-1")
+   estado=input("Computadoras ocupadas: ")
+   #primero divide [1-2-3,1-4-5] en [1-2-3][1-4-5] para después tomar cada número y asignarlo según
+   #el orden (lab, fila, compu) y convierte las variables a enteros (lab=1, fila=1, compu=1)
+   estadoGeneral=estado.split(",")
+   for coordenadas in estadoGeneral:
+         lab, fila, compu=map(int, coordenadas.split("-"))
+         if 1<= lab <=2 and 1 <= fila <=5 and 1<= compu <=4:
+            labs[lab - 1][fila - 1][compu - 1] = False
+
+def EstadoLab(labAsignado,laboratorio):
+    libres=0
+    ocupadas=0
+    print(f"\nEstado de {labAsignado}:")
     for i in range(5):
       filas=[]
       for j in range(4):
-         while True: #Para poder saber el estado de la computadora
-            Estado= input(f"Ingrese el estado de la computadora {i+1} {j+1} (O/ocupada) (L/libre)").strip().upper()
-            if Estado in ["O" , "L"]:
-               filas.append("Ocupada" if Estado == "O" else "Libre")
-               break
-            else:
-             print("Entrada invalida, intente de nuevo. O para ocupada y L para libre")
-             Computadoras.append(filas)
-             return Computadoras
-            
-print("Ingrese el Estado de las computadoras del laboratorio 1: ") #Los valores del lab 1
-Laboratorio1 = Estadolab() #Le doy a la variable el valor de la funcion para que se mande a llamar
-print("Ingrese el estado de las computadoras del segundo laboratorio: ")
-Laboratario2 = Estadolab() #Podria considerarse recursividad?, porque la funcion para llenar estos datos esta antes
+         if laboratorio[i][j]:
+            filas.append("[L]")
+            libres+=1
+         else:
+            filas.append("[O]")
+            ocupadas+=1
+      print(f"Fila {i + 1}): {filas}")
+    print(f"Libres: {libres} | Ocupadas: {ocupadas}\n")
 
-def ContarCompus(Compuatadoras):
-   CompusOcupadas= sum(filas.count("Ocupada") for filas in Compuatadoras) 
-   #Me tuve que investigar que hacia esa cosa jajajaja, espara que cuente cuantas veces aparece el Ocupada
-   CompusLibres= sum(filas.count("Libre") for filas in Compuatadoras)
-   #El for ahi es para que recorra el arreglo recolectando esos datos que dije arriba de ocupada o libre
-   return CompusOcupadas, CompusLibres
+lab1 = labVacio()
+lab2 = labVacio()
+labs = [lab1, lab2]
 
-OcupadasLab1 , LibresLab1 = ContarCompus(Laboratorio1)
-OcupadasLab2, LibresLab2 = ContarCompus(Laboratario2)
+marcar(labs)
 
-print("\nEl estado del laboratorio numero 1 es:")
-#Recorremos una vez mas el arreglo. 
-for filas in Laboratorio1:
-   print(f"Computadoras ocupadas: {OcupadasLab1}, Libres: {LibresLab1}")
-print("\nEl estado del laboratorio numero 2 es: ")
-for filas in Laboratario2:
-   print(f"Computadoras ocupadas: {OcupadasLab2}, Libres: {LibresLab2}")
-
-
-               
-               
-               
-
+EstadoLab("Laboratorio 1", lab1)
+EstadoLab("Laboratorio 2", lab2)
