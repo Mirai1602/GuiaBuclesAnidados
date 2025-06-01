@@ -17,15 +17,14 @@ def Registrar_Asistencia():
         dias_lista=[] #Lista temporal para poder pasarselo a Asistencia
         for j in range(dias):
             estudianteLista= [0] * estudiantesPorAula #Todos los alumnos esta como ausentes hasta que se marque lo contrario
-            m=0 
-            while m < estudiantesPorAula:
-                print(f"Estado estudiante {m+1}  *1 es presente 0 es ausente")
+            for m in range(estudiantesPorAula):
+                estudianteLista[m] = int(input(f"Estudiante {m+1} presente (1) o ausente (0): "))
                 dias_lista.append(estudianteLista)
     Asistencia.append(dias_lista)
     return Asistencia
 
 
-    print("\nResgistro de asistencia:")
+    
     print(Asistencia)
 def SalidaFinal(Asistencia):
     print("Bienvenido al registro de asistencia UAM: ")
