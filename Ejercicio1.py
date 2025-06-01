@@ -14,14 +14,19 @@ def Registrar_Asistencia():
     dias = 5 
     estudiantesPorAula= 6 #Recuerda! Tres variables para control 
     for i in range(secciones):
+        print(f" Registrando asistencia para Sección {i+1}")
         dias_lista=[] #Lista temporal para poder pasarselo a Asistencia
+
         for j in range(dias):
+            fecha_actual = datetime.now().strftime("%d/%m/%Y %H:%M:%S")  # Capturar fecha y hora
+            print(f"Día {j+1} ({fecha_actual})")
             estudianteLista= [0] * estudiantesPorAula #Todos los alumnos esta como ausentes hasta que se marque lo contrario
             for m in range(estudiantesPorAula):
-                estudianteLista[m] = int(input(f"Estudiante {m+1} presente (1) o ausente (0): "))
-                dias_lista.append(estudianteLista)
+                estudianteLista[m] =int( input(f"Estudiante {m+1} presente (1) o ausente (0): "))
+            dias_lista.append(estudianteLista)
     Asistencia.append(dias_lista)
     return Asistencia
+
 
 
     
@@ -41,7 +46,7 @@ def SalidaFinal(Asistencia):
          print("-" * 40) #Version rapida de imprimir el -----  
 
 Registrar_Asistencia()
-SalidaFinal()
+SalidaFinal(Asistencia)
 
 
 
