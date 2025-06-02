@@ -12,13 +12,14 @@ def infoStands():
     stands = []
 
     for i in range(4):
-        stand = input(f"Ingrese el nombre del stand {i+1}: ")
+        stand = input(f"Ingrese el nombre del stand {i+1}: \n")
         gananciasPorDia = []
         totalAcumulado = 0
 
+        print(f"\n───────Registro de ganancias del stand {stand}──────")
         for dia in range(3):
             totalGananciaDia = 0
-            print(f"───────Registro de ganancias del stand {stand}──────")
+            print("************************************************")
             print(f"                    DIA {dia+1}")
             for j in range(3):
                 ganancia = int(input(f"Ingrese el monto de venta del producto {j+1}: "))
