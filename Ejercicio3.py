@@ -11,17 +11,18 @@ producto y muestra un resumen por stand, por día, y un total general de la feri
 def infoStands():
     stands = []
 
-    for i in range(4):
+    for i in range(4): #guarda los nombres en una sublista
         stand = input(f"Ingrese el nombre del stand {i+1}: \n")
-        gananciasPorDia = []
+        gananciasPorDia = [] #se crea otra sublista
         totalAcumulado = 0
+
 
         print(f"\n───────Registro de ganancias del stand {stand}──────")
         for dia in range(3):
             totalGananciaDia = 0
             print("************************************************")
             print(f"                    DIA {dia+1}")
-            for j in range(3):
+            for j in range(3):  #suma el total de ganancia por día y el total general
                 ganancia = int(input(f"Ingrese el monto de venta del producto {j+1}: "))
                 totalGananciaDia += ganancia
             gananciasPorDia.append(totalGananciaDia)
@@ -29,7 +30,7 @@ def infoStands():
         stands.append([stand, gananciasPorDia, totalAcumulado])
 
         totalPorDia = [0] * len(stands [0][1])
-        for stand in stands:
+        for stand in stands: #calcula las ganancias de la feria por día
             for i in range(len(totalPorDia)):
                 totalPorDia[i] += stand [1][i]
 
