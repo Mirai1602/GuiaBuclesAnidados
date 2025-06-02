@@ -37,7 +37,7 @@ def ConsumoEnergetico():
     return consumoEdificios
 
 def mostrarReporte(consumoEdificios):
-    """Muestra el total y promedio semanal de consumo por edificio."""
+    #Muestra el total y promedio semanal de consumo por edificio
     print("\n--- Reporte de Consumo ---")
     for i in range(edificios):
         totalSemana = sum(consumoEdificios[i])
