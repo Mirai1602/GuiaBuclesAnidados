@@ -5,7 +5,7 @@ Descripcion: Es programa que simule el estado de uso de computadoras en dos labo
 campus. Cada laboratorio contiene cinco filas de cuatro computadoras. Por cada computadora 
 se debe registrar si está ocupada o libre (puede ingresarse manualmente o simularse con 
 valores aleatorios). Al finalizar, el programa debe mostrar el resumen de computadoras ocupadas o libres
-por el labotarotio. 
+por el labotarotio.
 """
 import os
 
@@ -35,10 +35,10 @@ def EstadoLab(labAsignado,laboratorio):
       filas=[]
       for j in range(4):
          if laboratorio[i][j]:
-            filas.append("[L]")
+            filas.append("[🟢]")
             libres+=1
          else:
-            filas.append("[O]")
+            filas.append("[🔴]")
             ocupadas+=1
       print(f"Fila {i + 1}): {filas}")
     print(f"Libres: {libres} | Ocupadas: {ocupadas}\n")
