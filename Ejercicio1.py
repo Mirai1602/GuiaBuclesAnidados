@@ -45,8 +45,8 @@ def SalidaFinal(Asistencia):
          print(f"   Día {b+1}: {estado_dia}")
          print("-" * 40) #Version rapida de imprimir el -----  
 
-Registrar_Asistencia()
-SalidaFinal(Asistencia)
+    Registrar_Asistencia()
+    SalidaFinal(Asistencia)
 
 
 
