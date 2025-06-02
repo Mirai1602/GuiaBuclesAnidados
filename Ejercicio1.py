@@ -24,7 +24,7 @@ def Registrar_Asistencia():
             for m in range(estudiantesPorAula):
                 estudianteLista[m] =int( input(f"Estudiante {m+1} presente (1) o ausente (0): "))
             dias_lista.append(estudianteLista)
-    Asistencia.append(dias_lista)
+        Asistencia.append(dias_lista)
     return Asistencia
 
 

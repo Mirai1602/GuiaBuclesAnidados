@@ -16,7 +16,6 @@ def infoStands():
         gananciasPorDia = [] #se crea otra sublista
         totalAcumulado = 0
 
-
         print(f"\n───────Registro de ganancias del stand {stand}──────")
         for dia in range(3):
             totalGananciaDia = 0
