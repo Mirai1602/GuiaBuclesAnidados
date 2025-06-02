@@ -26,10 +26,6 @@ def Registrar_Asistencia():
             dias_lista.append(estudianteLista)
         Asistencia.append(dias_lista)
     return Asistencia
-
-
-
-    
  
 def SalidaFinal(Asistencia):
     print("Bienvenido al registro de asistencia UAM: ")
@@ -37,13 +33,13 @@ def SalidaFinal(Asistencia):
     print(f"El dia de hoy es: {fecha} ")
     
     for a , seccion in enumerate(Asistencia): #For para control general
-         print(f" Sección {a+1}")
-         for b, dias in enumerate(seccion):
-           estado_dia = " | ".join(["✅" if estudiante == 1 else "❌" for estudiante in dias])
-        #Resulta que la consola soporta mostrar emojis wow, por que c no lo haria jajajaj
-        #Usamos .join como simulando la peticion de colocar el emoji que queremos para que 
-         print(f"   Día {b+1}: {estado_dia}")
-         print("-" * 40) #Version rapida de imprimir el -----  
+        print(f" Sección {a+1}")
+        for b, dias in enumerate(seccion):
+            estado_dia = " | ".join(["✅" if estudiante == 1 else "❌" for estudiante in dias])
+            #Resulta que la consola soporta mostrar emojis wow, por que c no lo haria jajajaj
+            #Usamos .join como simulando la peticion de colocar el emoji que queremos para que 
+            print(f"   Día {b+1}: {estado_dia}")
+            print("-" * 40) #Version rapida de imprimir el -----  
 
 
 asistencia_registrada = Registrar_Asistencia()
