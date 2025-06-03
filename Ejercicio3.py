@@ -1,5 +1,5 @@
 """
-Autor: Melani Espinoza
+Autor: Melani Espinoza, Mayrin Tellez, Maria Alejandra
 Fecha: 1/6/25
 Versión: 1.0
 Descripción: Es un programa que permite llevar un registro de ventas en una feria estudiantil organizada
