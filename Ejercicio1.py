@@ -26,11 +26,24 @@ def Registrar_Asistencia():
             dias_lista.append(estudianteLista)
         Asistencia.append(dias_lista)
     return Asistencia
+
+def Calcular_Totales(Asistencia):
+    totales_por_seccion = []
+    total_general = 0
+
+    for a, seccion in enumerate(Asistencia):
+        total_seccion = sum(sum(dia) for dia in seccion)  # Suma de asistentes en la sección
+        totales_por_seccion.append(total_seccion)
+        total_general += total_seccion
+
+    return totales_por_seccion,total_general
  
 def SalidaFinal(Asistencia):
     print("Bienvenido al registro de asistencia UAM: ")
     fecha = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     print(f"El dia de hoy es: {fecha} ")
+    totales_por_seccion= Calcular_Totales(Asistencia)
+    total_general = Calcular_Totales(Asistencia)
     
     for a , seccion in enumerate(Asistencia): #For para control general
         print(f" Sección {a+1}")
@@ -39,7 +52,9 @@ def SalidaFinal(Asistencia):
             #Resulta que la consola soporta mostrar emojis wow, por que c no lo haria jajajaj
             #Usamos .join como simulando la peticion de colocar el emoji que queremos para que 
             print(f"   Día {b+1}: {estado_dia}")
-            print("-" * 40) #Version rapida de imprimir el -----   
+            print(f"🔢 Total de asistencias en Sección {a+1}: {totales_por_seccion}")
+            print("-" * 40) #Version rapida de imprimir el -----  
+    print(f"📊 **Total general de asistencias en la semana: {total_general}") 
 
 
 asistencia_registrada = Registrar_Asistencia()
