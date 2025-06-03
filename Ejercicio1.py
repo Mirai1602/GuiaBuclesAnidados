@@ -39,7 +39,7 @@ def SalidaFinal(Asistencia):
             #Resulta que la consola soporta mostrar emojis wow, por que c no lo haria jajajaj
             #Usamos .join como simulando la peticion de colocar el emoji que queremos para que 
             print(f"   Día {b+1}: {estado_dia}")
-            print("-" * 40) #Version rapida de imprimir el -----  
+            print("-" * 40) #Version rapida de imprimir el -----   
 
 
 asistencia_registrada = Registrar_Asistencia()
