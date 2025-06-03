@@ -24,13 +24,13 @@ def Registrar_Asistencia():
             for m in range(estudiantesPorAula):
                 estudianteLista[m] =int( input(f"Estudiante {m+1} presente (1) o ausente (0): "))
             dias_lista.append(estudianteLista)
-    Asistencia.append(dias_lista)
+        Asistencia.append(dias_lista)
     return Asistencia
 
 
 
     
-    print(Asistencia)
+ 
 def SalidaFinal(Asistencia):
     print("Bienvenido al registro de asistencia UAM: ")
     fecha = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -45,8 +45,11 @@ def SalidaFinal(Asistencia):
          print(f"   Día {b+1}: {estado_dia}")
          print("-" * 40) #Version rapida de imprimir el -----  
 
-    Registrar_Asistencia()
-    SalidaFinal(Asistencia)
+
+asistencia_registrada = Registrar_Asistencia()
+SalidaFinal(asistencia_registrada)
+
+
 
 
 
